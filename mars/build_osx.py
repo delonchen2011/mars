@@ -47,7 +47,7 @@ def build_osx(tag=''):
 
     print('==================Output========================')
     print(dst_framework_path)
-    return True
+    return [dst_framework_path]
 
 def build_osx_xlog(tag=''):
     gen_mars_revision_file('comm', tag)
@@ -94,6 +94,7 @@ def build_osx_xlog(tag=''):
 
     print('==================Output========================')
     print(dst_framework_path)
+    return [dst_framework_path]
 
 def gen_ios_project():
     gen_mars_revision_file('comm')
@@ -107,29 +108,23 @@ def gen_ios_project():
         print('!!!!!!!!!!!gen fail!!!!!!!!!!!!!!!')
         return False
 
-    return True
+    return []
+
+def build_osx_with_type(num):
+    if num == '1':
+        return build_osx()
+    elif num == '2':
+        return build_osx_xlog()
+    elif num == '3':
+        return gen_ios_project()
+    else:
+        return []
 
 def main():
-    while True:
-        if len(sys.argv) >= 2:
-            build_osx(sys.argv[1])
-            break
-        else:
-            num = input('Enter menu:\n1. Clean && build.\n2. Gen OSX Project.\n3. Build xlog.\n4. Exit\n')
-            if num == '1':
-                build_osx()
-                break
-            elif num == '2':
-                gen_ios_project()
-                break
-            elif num == '3':
-                build_osx_xlog()
-                break
-            elif num == '4':
-                break
-            else:
-                build_osx()
-                break
-
+    if len(sys.argv) >= 2:
+        build_osx_with_type(sys.argv[1])
+    else:
+        num = input('Enter menu:\n1. Clean && build.\n2. Build xlog.\n3.Gen OSX Project.\n4. Exit\n')
+        
 if __name__ == '__main__':
     main()

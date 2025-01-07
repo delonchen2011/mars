@@ -15,6 +15,7 @@ xcshareddata
 /mars/libraries/*/
 /mars/*/libs/
 !/mars/boost/libs/
+!/mars/libraries/MarsXLogOC/
 /samples/iOS/iOSDemo/Kernel/MarsLib/
 /samples/iOS/iOSDemoXlog/Kernel/MarsLib/
 /samples/iOS/XloggerSwiftDemo/Kernel/MarsLib/
@@ -111,6 +112,7 @@ mars/Win32/Debug
 *.out
 Debug-iphonesimulator
 *.xcodeproj
+!/mars/libraries/MarsXLogOC/MarsXLogOC.xcodeproj
 *.build
 cmake_build
 *.settings

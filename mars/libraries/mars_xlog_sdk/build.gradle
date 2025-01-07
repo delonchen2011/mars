@@ -6,8 +6,13 @@ group PROJ_GROUP
 version PROJ_VERSION
 artifactId = PROJ_ARTIFACTID
 
+tasks.register('wrapper', Wrapper) {
+    gradleVersion = '7.0'  // 你的 Gradle 版本
+}
+
+tasks.register("prepareKotlinBuildScriptModel"){}
 android {
-    compileSdkVersion 31
+    compileSdkVersion 34
     buildToolsVersion '30.0.2'
     defaultConfig {
         minSdkVersion 19
